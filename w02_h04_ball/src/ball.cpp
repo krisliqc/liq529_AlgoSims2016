@@ -38,6 +38,9 @@ void MyBall::update(){
         //these two made the particles stop...i thought they are suppose to go in an opposite direction
 //        velocity.x = velocity.x * -1;
 //        velocity.y = velocity.y * -1;
+        
+        //check the ones that have already been modified and add them to an array and don't check them again
+        
     }
     
 // gradually slow down?
