@@ -22,6 +22,10 @@ MyBall::MyBall(){
 
 void MyBall::update(){
     
+    //1 += 1;
+    //pos += vel;
+    //vel += acc;
+    
     position.x += velocity.x *3;
     position.y += velocity.y *3;
     
@@ -31,8 +35,8 @@ void MyBall::update(){
     dist = ofDist(ofGetMouseX(), ofGetMouseY(), position.x, position.y);
     
     if(dist < 100){
-        velocity.x +=ofRandom(-0.3,0.3);
-        velocity.y +=ofRandom(-0.3,0.3);
+        velocity.x += ofRandom(-0.3,0.3);
+        velocity.y += ofRandom(-0.3,0.3);
         
         
         //these two made the particles stop...i thought they are suppose to go in an opposite direction

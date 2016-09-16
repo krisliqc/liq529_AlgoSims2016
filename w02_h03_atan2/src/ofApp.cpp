@@ -19,18 +19,20 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     myMover.xenoToPoint(mouseX, mouseY);
-    theta = atan2(mouseX-ofGetWidth()/2,mouseY-ofGetHeight()/2);
+    theta = ofRadToDeg(atan2(mouseY-ofGetHeight()/2,mouseX-ofGetWidth()/2));
+    cout<<  theta  <<endl;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofRotate(theta*5);
+    
     myMover.draw();
     
-//    ofPushMatrix();
-//    ofRotate(theta);
-//    ofDrawTriangle(ofGetWidth()/2, ofGetHeight()/2-50, ofGetWidth()/2+20, ofGetHeight()/2, ofGetWidth()/2-20, ofGetHeight()/2);
-//    ofPopMatrix();
+    ofPushMatrix();
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+    ofRotate(90+theta);
+    ofDrawTriangle(0, -50, 20, 0, -20, 0);
+    ofPopMatrix();
 }
 
 //--------------------------------------------------------------

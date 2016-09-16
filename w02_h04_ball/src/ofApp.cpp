@@ -2,6 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+
     for(int i = 0; i< 200; i++){
         
         MyBall temp;
@@ -43,6 +45,9 @@ void ofApp::draw(){
     }
 
     step+=1;
+    
+//    cout<<ofGetFrameRate()<<endl;
+    cout<<ofGetElapsedTimef()<<endl;
     
 }
 

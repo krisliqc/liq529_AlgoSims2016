@@ -2,19 +2,21 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofBackground(220,120,160);
+    
+    ofSetBackgroundAuto(false);
+//    ofBackground(220,120,160);
     x = 0;
     y = 0;
     
-    r = 10;
+    radius = 10;
     
     h = PI;
     w = PI;
     
     gui.setup();
-    gui.add(factor1.setup("factor1",50,1,100));
-    gui.add(factor2.setup("factor2",50,1,100));
-    gui.add(radius.setup("radius",10,5,30));
+    gui.add(factor1.setup("factor1",42,1,100));
+    gui.add(factor2.setup("factor2",58,1,100));
+//    gui.add(radius.setup("radius",10,5,30));
 }
 
 //--------------------------------------------------------------
@@ -24,15 +26,17 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//    ofSetColor(220, 120, 160, 50);
-//    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    ofSetColor(220, 120, 160, 90);
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    
+//    ofDrawRectangle(, , , )
     
     gui.draw();
     
-    ofSetColor(255);
+    ofSetColor(255,200);
     ofDrawEllipse(sin(x)*radius+ofGetWidth()/2,cos(y)*radius+ofGetHeight()/2,10+60*sin(w),10+60*sin(h));
     
-//    r += 0.2;
+    radius += 0.2;
     
     w += PI/72;
     h += PI/90;

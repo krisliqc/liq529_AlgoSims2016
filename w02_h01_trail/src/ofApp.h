@@ -24,13 +24,14 @@ class ofApp : public ofBaseApp{
     
     
     float x,y;
-    float r;
+    float radius;
     
     float h,w;
+
     
     ofxFloatSlider factor1;
     ofxFloatSlider factor2;
-    ofxFloatSlider radius;
+//    ofxFloatSlider radius;
     
     ofxPanel gui;
     
