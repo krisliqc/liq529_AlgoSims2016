@@ -1,0 +1,30 @@
+//
+//  Particle.hpp
+//  w04_h02_particle
+//
+//  Created by Kris Li on 9/28/16.
+//
+//
+
+#pragma once
+#include <ofMain.h>
+
+class Particle{
+    
+public:
+    Particle();
+    void resetForce();
+    void setInitialCondition(ofPoint _pos, ofPoint _vel);
+    void update();
+    void draw();
+    void addRepulsionForce(ofPoint _pos, float _radius, float _strength);
+    void addAttractionForce( ofPoint _pos, float _radius, float _strength);
+    void bound();
+    
+private:
+    ofPoint pos, vel, force; //force is also known an acceleration. Newton F = ma
+    float damping;
+    
+    
+    
+};
