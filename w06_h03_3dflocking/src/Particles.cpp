@@ -36,10 +36,10 @@ void Particle::bounding(){
 //        vel = -vel;
 //    }
     if(pos.y > ofGetHeight() || pos.y < 0){
-        vel.y = -vel.y;
+        vel = -vel;
     }
     if(pos.x > ofGetWidth() || pos.x < 0){
-        vel.x = -vel.x;
+        vel = -vel;
     }
 
 }
@@ -138,9 +138,11 @@ ofVec3f Particle::seek(){
 void Particle::avoid(){
  
     float centerDist;
-    centerDist = ofDist(pos.x, pos.y, pos.z, ofGetWidth()/2, ofGetHeight()/2, 0);
+    centerDist = ofDist(pos.x, pos.y, pos.z, 0, 0, 100);
     if(centerDist < 200) {
         vel = -vel;
+//        ofSetColor(255,0,0);
+        
     }
 }
 

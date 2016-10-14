@@ -26,6 +26,11 @@ void ofApp::update(){
         birds[i].seek();
         
     }
+    
+    float x1 = birds[1].pos.x;
+    float y1 = birds[1].pos.y;
+    float z1 = birds[1].pos.z;
+    cout << "x1: " << z1 << endl;
 }
 
 //--------------------------------------------------------------
@@ -42,7 +47,7 @@ void ofApp::draw(){
     }
     
     cam.end();
-
+    
 }
 
 //--------------------------------------------------------------

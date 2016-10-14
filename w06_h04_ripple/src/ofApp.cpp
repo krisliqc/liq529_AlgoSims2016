@@ -2,8 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    numX = 50;
-    numY = 50;
+    numX = 30;
+    numY = 30;
     
     for(int i=0; i<numX; i++){
         for (int j=0; j<numY; j++){
@@ -12,8 +12,8 @@ void ofApp::setup(){
             float y = ofMap(j,0, numY, 0,ofGetHeight());
             
             Drop temp;
+            temp.init(ofPoint(x,y), ofPoint(0,0));
             drops.push_back(temp);
-            drops[i].init(ofPoint(x,y), ofPoint(0,0));
             
         }
         
@@ -23,22 +23,12 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    int count = 0;
     
-    for(int i = 0; i< numX; i++){
-        for(int j = 0; j < numY; j++){
+    for(int i = 0; i< drops.size(); i++){
             
-//            float x = ofMap(i,0, numX, 0,ofGetWidth());
-//            float y = ofMap(j,0, numY, 0,ofGetHeight());
+            drops[i].addDamping();
+            drops[i].update();
             
-//            drops[count].resetForce();
-            
-            drops[count].addDamping();
-            drops[count].update();
-            
-            count++;
-            
-        }
     }
 }
 
@@ -46,12 +36,11 @@ void ofApp::update(){
 void ofApp::draw(){
 //    cam.begin();
     
-    ofBackground(200);
-    ofSetColor(0);
+    ofBackground(50);
+//    ofSetColor(0);
     
     for(int i =0; i< drops.size(); i++){
-//        ofColor thisColor = (0);
-        
+        ofSetColor(50+i/2,50+i/4,80+i/4);
         drops[i].draw();
         
     }
@@ -81,7 +70,13 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    
+    for(int i =0; i< drops.size(); i++){
+        
+        ofPoint click = ofPoint(ofGetMouseX(),ofGetMouseY());
+        
+        drops[i].horizontal(click);
+        
+    }
 }
 
 //--------------------------------------------------------------
