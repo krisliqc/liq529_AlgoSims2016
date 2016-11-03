@@ -93,7 +93,12 @@ void ofApp::update(){
 void ofApp::draw(){
 //    ofSetColor(34,83,120,90);
 //    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    
+    
+    
+    gui.draw();
     cam.begin();
+    
     
     ofPushMatrix();
     ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2);
@@ -136,7 +141,6 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    gui.draw();
 }
 
 //--------------------------------------------------------------
