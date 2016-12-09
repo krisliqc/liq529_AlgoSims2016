@@ -22,6 +22,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
+    circle.clear();
     speed = ofGetElapsedTimef()*0.5;
     
     for(int i = 0; i < res; i++){
@@ -56,7 +57,7 @@ void ofApp::draw(){
     
     ofSetColor(220,88,38);
     ofSetLineWidth(4);
-//    ofTranslate(pos);
+    ofTranslate(pos);
     
     circle.draw();
     

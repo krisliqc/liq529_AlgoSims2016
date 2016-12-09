@@ -38,8 +38,8 @@ void ofApp::setup(){
     }
     
     //create the triangle indices
-    for(int i = 0; i <size; i++){
-        for(int j = 0; j <size; j++){
+    for(int i = 0; i <size-1; i++){
+        for(int j = 0; j <size-1; j++){
             
             i1 = j + size * i;
             i2 = j+1 + size * i;
@@ -66,7 +66,8 @@ void ofApp::update(){
             
             ofPoint p = mesh.getVertex(index);
             
-            float perlin = ofNoise(j*0.1, i*0.1, time *0.5);
+//            float perlin = ofNoise(j*0.1, i*0.1, time *0.5);
+            float perlin = ofNoise(i*0.1, time *0.5);
             radius = 150+ (perlin * 150);
             
             mesh.setVertex(index, p.normalize()*radius);
